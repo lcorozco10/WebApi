@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.Rest.Secure", "Api.Rest.Secure\Api.Rest.Secure.csproj", "{304C1BFD-3EB7-49C7-8D1D-F39272755C21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Angular.Client", "Angular.Client\Angular.Client.csproj", "{E7FE3D8D-964B-462D-81BE-D8A11984D2A6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{304C1BFD-3EB7-49C7-8D1D-F39272755C21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{304C1BFD-3EB7-49C7-8D1D-F39272755C21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{304C1BFD-3EB7-49C7-8D1D-F39272755C21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{304C1BFD-3EB7-49C7-8D1D-F39272755C21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7FE3D8D-964B-462D-81BE-D8A11984D2A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7FE3D8D-964B-462D-81BE-D8A11984D2A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7FE3D8D-964B-462D-81BE-D8A11984D2A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7FE3D8D-964B-462D-81BE-D8A11984D2A6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
