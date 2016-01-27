@@ -148,12 +148,31 @@
     <Compile Include="AuthRepository.cs" />
     <Compile Include="Controller\AccountController.cs" />
     <Compile Include="Controller\OrdersController.cs" />
+    <Compile Include="Migrations\201601262034249_InitialCreate.cs" />
+    <Compile Include="Migrations\201601262034249_InitialCreate.Designer.cs">
+      <DependentUpon>201601262034249_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601272316354_Add_Client_And_RefreshToken_Tables.cs" />
+    <Compile Include="Migrations\201601272316354_Add_Client_And_RefreshToken_Tables.Designer.cs">
+      <DependentUpon>201601272316354_Add_Client_And_RefreshToken_Tables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Entities\Client.cs" />
+    <Compile Include="Models\Entities\RefreshToken.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\SimpleAuthorizationServerProvider.cs" />
+    <Compile Include="Providers\SimpleRefreshTokenProvider.cs" />
     <Compile Include="StartUp.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201601262034249_InitialCreate.resx">
+      <DependentUpon>201601262034249_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601272316354_Add_Client_And_RefreshToken_Tables.resx">
+      <DependentUpon>201601272316354_Add_Client_And_RefreshToken_Tables.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -23,4 +23,10 @@ namespace Api.Rest.Secure.Models
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
     }
+
+    public enum ApplicationTypes
+    {
+        JavaScript = 0,
+        NativeConfidential = 1
+    };
 }
