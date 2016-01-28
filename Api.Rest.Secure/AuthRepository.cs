@@ -40,25 +40,10 @@ namespace Api.Rest.Secure
 
             return user;
         }
-
-        public void Dispose()
-        {
-            _ctx.Dispose();
-            _userManager.Dispose();
-
-        }
-
-
-        public Client FindClient(string clientId)
-        {
-            var client = _ctx.Clients.Find(clientId);
-
-            return client;
-        }
+        
 
         public async Task<bool> AddRefreshToken(RefreshToken token)
         {
-
             var existingToken = _ctx.RefreshTokens.SingleOrDefault(r => r.Subject == token.Subject && r.ClientId == token.ClientId);
 
             if (existingToken != null)
@@ -75,13 +60,10 @@ namespace Api.Rest.Secure
         {
             var refreshToken = await _ctx.RefreshTokens.FindAsync(refreshTokenId);
 
-            if (refreshToken != null)
-            {
-                _ctx.RefreshTokens.Remove(refreshToken);
-                return await _ctx.SaveChangesAsync() > 0;
-            }
+            if (refreshToken == null) return false;
 
-            return false;
+            _ctx.RefreshTokens.Remove(refreshToken);
+            return await _ctx.SaveChangesAsync() > 0;
         }
 
         public async Task<bool> RemoveRefreshToken(RefreshToken refreshToken)
@@ -90,16 +72,17 @@ namespace Api.Rest.Secure
             return await _ctx.SaveChangesAsync() > 0;
         }
 
-        public async Task<RefreshToken> FindRefreshToken(string refreshTokenId)
-        {
-            var refreshToken = await _ctx.RefreshTokens.FindAsync(refreshTokenId);
+        public Client FindClient(string clientId) => _ctx.Clients.Find(clientId);
 
-            return refreshToken;
-        }
+        public async Task<RefreshToken> FindRefreshToken(string refreshTokenId) => await _ctx.RefreshTokens.FindAsync(refreshTokenId);
 
-        public List<RefreshToken> GetAllRefreshTokens()
+        public List<RefreshToken> GetAllRefreshTokens() =>_ctx.RefreshTokens.ToList();
+
+        public void Dispose()
         {
-            return _ctx.RefreshTokens.ToList();
+            _ctx.Dispose();
+            _userManager.Dispose();
+
         }
 
     }

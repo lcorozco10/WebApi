@@ -148,6 +148,7 @@
     <Compile Include="AuthRepository.cs" />
     <Compile Include="Controller\AccountController.cs" />
     <Compile Include="Controller\OrdersController.cs" />
+    <Compile Include="Controller\RefreshTokensController.cs" />
     <Compile Include="Migrations\201601262034249_InitialCreate.cs" />
     <Compile Include="Migrations\201601262034249_InitialCreate.Designer.cs">
       <DependentUpon>201601262034249_InitialCreate.cs</DependentUpon>
