@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security.OAuth;
 using System.Security.Claims;
-using System.Security.Cryptography;
-using System.Text;
 using System.Threading.Tasks;
 using Api.Rest.Secure.Models.Entities;
 using Microsoft.Owin.Security;
+using static Api.Rest.Secure.Helper.Helper;
 
 namespace Api.Rest.Secure.Providers
 {
@@ -28,8 +26,8 @@ namespace Api.Rest.Secure.Providers
             {
                 //Remove the comments from the below line context.SetError, and invalidate context 
                 //if you want to force sending clientId/secrects once obtain access tokens. 
-                context.Validated();
-                //context.SetError("invalid_clientId", "ClientId should be sent.");
+                //context.Validated();
+                context.SetError("invalid_clientId", "ClientId should be sent.");
                 return Task.FromResult<object>(null);
             }
 
@@ -51,7 +49,7 @@ namespace Api.Rest.Secure.Providers
                     context.SetError("invalid_clientId", "Client secret should be sent.");
                     return Task.FromResult<object>(null);
                 }
-                if (client.Secret != Helper.GetHash(clientSecret))
+                if (client.Secret != GetHash(clientSecret))
                 {
                     context.SetError("invalid_clientId", "Client secret is invalid.");
                     return Task.FromResult<object>(null);
@@ -117,9 +115,8 @@ namespace Api.Rest.Secure.Providers
 
             return Task.FromResult<object>(null);
         }
-
-
-        public override Task GrantRefreshToken(OAuthGrantRefreshTokenContext context)
+        
+        public override  Task GrantRefreshToken(OAuthGrantRefreshTokenContext context)
         {
             var originalClient = context.Ticket.Properties.Dictionary["as:client_id"];
             var currentClient = context.ClientId;
@@ -141,19 +138,4 @@ namespace Api.Rest.Secure.Providers
         }
 
     }
-
-    public class Helper
-    {
-        public static string GetHash(string input)
-        {
-            HashAlgorithm hashAlgorithm = new SHA256CryptoServiceProvider();
-
-            var byteValue = Encoding.UTF8.GetBytes(input);
-
-            var byteHash = hashAlgorithm.ComputeHash(byteValue);
-
-            return Convert.ToBase64String(byteHash);
-        }
-    }
-
 }

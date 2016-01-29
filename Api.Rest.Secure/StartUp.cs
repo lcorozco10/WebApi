@@ -1,5 +1,4 @@
-﻿using Api.Rest.Secure.App_Start;
-using Api.Rest.Secure.Providers;
+﻿using Api.Rest.Secure.Providers;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.OAuth;
 using Owin;
@@ -33,8 +32,7 @@ namespace Api.Rest.Secure
                 TokenEndpointPath = new PathString("/token"),
                 AccessTokenExpireTimeSpan = TimeSpan.FromMinutes(10),
                 Provider = new SimpleAuthorizationServerProvider(),
-                RefreshTokenProvider = new SimpleRefreshTokenProvider()
-              
+                RefreshTokenProvider = new SimpleRefreshTokenProvider(),
             };
 
             // Token Generation

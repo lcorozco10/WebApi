@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Web;
 using Api.Rest.Secure.Models.Entities;
 using Microsoft.Owin.Security.Infrastructure;
+using static Api.Rest.Secure.Helper.Helper;
 
 namespace Api.Rest.Secure.Providers
 {
@@ -32,7 +33,7 @@ namespace Api.Rest.Secure.Providers
 
                 var token = new RefreshToken()
                 {
-                    Id = Helper.GetHash(refreshTokenId),
+                    Id = GetHash(refreshTokenId),
                     ClientId = clientid,
                     Subject = context.Ticket.Identity.Name,
                     IssuedUtc = DateTime.UtcNow,
@@ -64,7 +65,7 @@ namespace Api.Rest.Secure.Providers
             var allowedOrigin = context.OwinContext.Get<string>("as:clientAllowedOrigin");
             context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { allowedOrigin });
 
-            string hashedTokenId = Helper.GetHash(context.Token);
+            string hashedTokenId = GetHash(context.Token);
 
             using (AuthRepository _repo = new AuthRepository())
             {
@@ -78,7 +79,5 @@ namespace Api.Rest.Secure.Providers
                 }
             }
         }
-
-
     }
 }

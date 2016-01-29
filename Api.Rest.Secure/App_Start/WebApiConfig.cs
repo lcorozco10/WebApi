@@ -1,9 +1,9 @@
-﻿using Newtonsoft.Json.Serialization;
-using System.Linq;
+﻿using System.Linq;
 using System.Net.Http.Formatting;
 using System.Web.Http;
+using Newtonsoft.Json.Serialization;
 
-namespace Api.Rest.Secure.App_Start
+namespace Api.Rest.Secure
 {
     public class WebApiConfig
     {

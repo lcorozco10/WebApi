@@ -149,6 +149,7 @@
     <Compile Include="Controller\AccountController.cs" />
     <Compile Include="Controller\OrdersController.cs" />
     <Compile Include="Controller\RefreshTokensController.cs" />
+    <Compile Include="Helper\Helper.cs" />
     <Compile Include="Migrations\201601262034249_InitialCreate.cs" />
     <Compile Include="Migrations\201601262034249_InitialCreate.Designer.cs">
       <DependentUpon>201601262034249_InitialCreate.cs</DependentUpon>
@@ -174,6 +175,7 @@
       <DependentUpon>201601272316354_Add_Client_And_RefreshToken_Tables.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
